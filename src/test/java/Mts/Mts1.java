@@ -23,12 +23,12 @@ public class Mts1{
 
     @BeforeEach
     public void setUp() {
-        // путь к драйверу
+
        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        // Открытие сайта
+
         driver.get("http://mts.by");
         driver.manage().window().maximize();
         close();
@@ -56,42 +56,39 @@ public class Mts1{
 
         assertEquals(expectedText, actualText, "Текстне совпадает");
 
-        // Проверка 2: Наличие <br> в структуре
-       // String innerHTML = text.getAttribute("innerHTML");
-       // assertTrue(innerHTML.contains("<br>"), "Отсутствует тег переноса строки");
     }
 
     @Test
     public void testElementVisa() {
-        // наличия логотипов платёжных
+
         List<WebElement> logos = driver.findElements(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[1]/img"));
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем отсутствуют");
     }
 
     @Test
     public void testElementVisa2() {
-        // наличия логотипов платёжных
+
         List<WebElement> logos = driver.findElements(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[2]/img"));
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем отсутствуют");
 
     }
     @Test
     public void testElementMaster() {
-        // наличия логотипов платёжных
+
         List<WebElement> logos = driver.findElements(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[3]/img"));
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем отсутствуют");
 
     }
     @Test
     public void testElementMaster2() {
-        // наличия логотипов платёжных
+
         List<WebElement> logos = driver.findElements(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[4]/img"));
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем отсутствуют");
 
     }
     @Test
     public void testElementBel() {
-        // наличия логотипов платёжных
+
         List<WebElement> logos = driver.findElements(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[5]/img"));
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем отсутствуют");
 
@@ -99,7 +96,7 @@ public class Mts1{
 
     @Test
     public void testDetailis() {
-        // «Подробнее о сервисе»
+
         WebElement detailsLink = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/a")));
         detailsLink.click();
@@ -111,7 +108,7 @@ public class Mts1{
 
     @Test
     public void testContinue() {
-        // Заполнение полей и проверка кнопки «Продолжить»
+
         WebElement car = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button/span[1]")));
         assertEquals("Услуги связи",car.getText());
@@ -133,7 +130,7 @@ public class Mts1{
 
     @AfterEach
     public void off() {
-        // Закрытие браузера
+
         if (driver != null) {
             driver.quit();
         }
