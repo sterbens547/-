@@ -1,17 +1,10 @@
 package Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import mts1.PegeMts;
+import Mts.PegeMts;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 
 public class TestMts extends PegeMts {
 
