@@ -32,8 +32,9 @@ public class TestMts extends PegeMts {
         sum.click();
         sum.sendKeys(prise);
         driver.findElement(By.xpath(continueButton)).click();
-        String confirmPhone = driver.findElement(By.xpath(phoneRec)).getText();
-        String confirmSum = driver.findElement(By.xpath(buttonSum)).getText();
+        WebElement popup = driver.findElement(By.xpath("/html/body/app-root/div/div"));
+        String confirmPhone = popup.findElement(By.xpath(phoneRec)).getText();
+        String confirmSum = popup.findElement(By.xpath(buttonSum)).getText();
         System.out.println(confirmPhone.equals("Оплата: Услуги связи" +
                 "Номер:375297777777") ? "✓ Номер верный" : "✗ Номер неверный");
         System.out.println(confirmSum.contains(prise) ? "✓ Сумма верна" : "✗ Сумма неверна");
