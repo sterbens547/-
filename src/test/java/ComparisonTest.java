@@ -2,12 +2,11 @@ import static org.testng.Assert.*;
 
 public class ComparisonTest {
 
-    @org.testng.annotations.Test
-    public void testComp() {
-
-        assertEquals(Trianglee.aree(5, 3), "5 больше 3");
-        assertEquals(Trianglee.aree(3, 5), "3 меньше 5");
-        assertEquals(Trianglee.aree(5, 5), "5 равно 5");
+    @Test
+    public void testCompare() {
+        assertEquals(Comparison.comp(5, 3), "5 больше 3", "5 должно быть больше 3");
+        assertEquals(Comparison.comp(3, 5), "3 меньше 5", "3 должно быть меньше 5");
+        assertEquals(Comparison.comp(5, 5), "5 равно 5", "5 должно быть равно 5");
     }
 
 }
