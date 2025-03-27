@@ -39,9 +39,6 @@ public class TestMts extends PegeMts {
                 "Номер:375297777777") ? "✓ Номер верный" : "✗ Номер неверный");
         System.out.println(confirmSum.contains(prise) ? "✓ Сумма верна" : "✗ Сумма неверна");
 
-        System.out.println("Проверка подтверждения:");
-        System.out.println(confirmPhone.equals("297777777") ? "✓ Номер верный" : "✗ Номер неверный");
-        System.out.println(confirmSum.contains("10 руб.") ? "✓ Сумма верна" : "✗ Сумма неверна");
 
     }
 
