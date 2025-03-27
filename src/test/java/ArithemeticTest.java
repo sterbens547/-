@@ -2,27 +2,40 @@ import org.junit.jupiter.api.Test;
 import static  org.junit.jupiter.api.Assertions.*;
  class ArithemeticTest {
 
-    @Test
+     @Test
      void testAdd() {
-        assertEquals(5, Arithemetic.in(2, 3));
-    }
+         assertEquals(5, Arithemetic.in(2, 3), "2 + 3 должно быть 5");
+         assertThrows(ArithmeticException.class,
+                 () -> Arithemetic.in(Integer.MAX_VALUE, 1),
+                 "Переполнение при сложении должно вызывать исключение"
+         );
+     }
 
-    @Test
-     void testMinus () {
-        assertEquals(1,Arithemetic.minus(5,6));
-    }
+     @Test
+     void testSubtract() {
+         assertEquals(1, Arithemetic.minus(4, 3), "4 - 3 должно быть 1");
+         assertThrows(ArithmeticException.class,
+                 () ->  Arithemetic.minus(Integer.MIN_VALUE, 1),
+                 "Переполнение при вычитании должно вызывать исключение"
+         );
+     }
 
-    @Test
-     void testMultiplication () {
-        assertEquals(10,Arithemetic.multiplication(2,5));
-    }
+     @Test
+     void testMultiply() {
+         assertEquals(6, Arithemetic.multiplication(2, 3), "2 * 3 должно быть 6");
+         assertThrows(ArithmeticException.class,
+                 () -> Arithemetic.multiplication(Integer.MAX_VALUE, 2),
+                 "Переполнение при умножении должно вызывать исключение"
+         );
+     }
 
-    @Test
-     void testDivision () {
-        assertEquals(4.0,Arithemetic.division(20,5));
-        assertThrows(ArithmeticException.class, () -> Arithemetic.division(10,0));
-    }
-
-
+     @Test
+     void testDivide() {
+         assertEquals(2.0, Arithemetic.division(6, 3), "6 / 3 должно быть 2.0");
+         assertThrows(ArithmeticException.class,
+                 () -> Arithemetic.division(1, 0),
+                 "Деление на ноль должно вызывать исключение"
+         );
+     }
 
 }
