@@ -1,16 +1,38 @@
 package Test;
 
-import Mts.PegeMts;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
+import org.example.PegeMts;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
+@Epic("Тесты оплаты на сайте МТС")
+@Feature("Проверка формы оплаты")
 public class TestMts extends PegeMts {
 
+    @BeforeEach
+    void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
+    }
+
+
     @Test
-    public void testFieldСheck () {
+    @Story("Проверка полей формы")
+    @Description("Тест проверяет корректность отображения полей 'Номер телефона' и 'Сумма'")
+    @Severity(SeverityLevel.BLOCKER)
+    public void testFieldСheck() {
         driver.get(url);
         close();
         driver.findElement(By.xpath(payLink)).click();
@@ -21,8 +43,11 @@ public class TestMts extends PegeMts {
         System.out.println(phoneLabel.contains("Номер телефона") ? "✓ Номер телефона" : "✗ Номер телефона");
         System.out.println(sumLabel.contains("Сумма") ? "✓ Сумма" : "✗ Сумма");
     }
+
     @Test
-    public void testContinur () {
+    @Story("Проверка процесса оплаты")
+    @Description("Тест проверяет заполнение формы и отображение всплывающего окна")
+    public void testContinur() {
 
         driver.get(url);
         close();
@@ -67,14 +92,14 @@ public class TestMts extends PegeMts {
 
 
 
-
     }
 
+
+
     @AfterEach
-    public void tearDown () {
+    public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
-
 }

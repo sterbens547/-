@@ -1,6 +1,4 @@
-package Mts;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,15 +30,6 @@ public class PegeMts {
     public String date = "/html/body/app-root/div/div/div/app-payment-container/section/div/app-card-page/div/div[1]/app-card-input/form/div[1]/div[2]/div[1]/app-input/div/div/div[1]/input";
     public String cvc = "/html/body/app-root/div/div/div/app-payment-container/section/div/app-card-page/div/div[1]/app-card-input/form/div[1]/div[2]/div[3]/app-input/div/div/div[1]";
     public String nameCard = "/html/body/app-root/div/div/div/app-payment-container/section/div/app-card-page/div/div[1]/app-card-input/form/div[1]/div[3]/app-input/div/div/div[1]/input";
-
-
-    @BeforeEach
-    public void setUp () {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        driver.manage().window().maximize();
-    }
 
 
 
